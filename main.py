@@ -3,24 +3,22 @@
 import os
 import discord
 from discord.ext import commands
+from chatgpt import msgresponse
+client = discord.Client(intents=discord.Intents.default())
 
 
-intents = discord.Intents.default()
-intents.message_content = True
-bot = commands.Bot(command_prefix='!', intents=intents)
-
-
-@bot.event
+@client.event
 async def on_ready():
-    print(f"Logged in as {bot.user}")
-
-@bot.command()
-async def ping(ctx):
-    await ctx.send('pong')
-
-@bot.command()
-async def hello(ctx):
-    await ctx.send("Choo choo! 🚅")
+    print(f'{client.user} has connected to Discord!')
 
 
-bot.run(os.environ["DISCORD_TOKEN"])
+#using a command to get the bot to respond
+@client.event
+async def on_message(message):
+    if message.content.startswith('!GPT'):
+        await message.channel.send(msgresponse(message.content[4:]))
+
+
+
+
+client.run(os.environ["DISCORD_TOKEN"])
