@@ -22,6 +22,10 @@ async def on_message(message):
         return
     
     if "!gpt" in message.content.lower():
+        if len(message.content) <= 5:
+            return None
+        if message.content[0:4] != "!gpt":
+            return None
         await message.channel.send(msgresponse(message.content[4:]))
     if "!ping" in message.content.lower():
         print(message.content)
