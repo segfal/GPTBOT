@@ -26,7 +26,9 @@ async def on_message(message):
             return None
         if message.content[0:4] != "!gpt":
             return None
-        await message.channel.send(msgresponse(message.content[4:]))
+        x = msgresponse(message.content[4:])
+        x = x.replace("As an AI language model, ","");
+        await message.channel.send(x)
     if "!ping" in message.content.lower():
         print(message.content)
         await message.channel.send('pong')
