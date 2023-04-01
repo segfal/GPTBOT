@@ -6,6 +6,7 @@ from discord.ext import commands
 from chatgpt import msgresponse
 from dotenv import load_dotenv
 import time
+import random
 load_dotenv()
 client = discord.Client(intents=discord.Intents.all())
 
@@ -25,8 +26,9 @@ async def on_message(message):
     if "!gpt" in message.content.lower():
         x = msgresponse(message.content[4:])
         for i in x:
-            time.sleep(1)
-            await message.channel.send(i+"\n")
+            async with message.channel.typing():
+                time.sleep(random.randint(1,7))
+            await message.channel.send(i+"\n\n")
         #await message.channel.send(msgresponse(message.content[4:]))
     if "!ping" in message.content.lower():
         print(message.content)
