@@ -27,7 +27,15 @@ async def on_message(message):
         
         #hello with user name
         await message.channel.send(f'Hello <@{message.author.id}>!')
-
+    if "!jerb" in message.content.lower():
+        await message.channel.send(random.choice([
+            "Leave me alone, I'm trying to sleep.",
+            "who are you?",
+            "tf do you want?",
+            "I'm not your bitch",
+            "Stop it"
+        ]))
+        return None
     
     if "!gpt" in message.content.lower():
         x = msgresponse(message.content[4:])
@@ -41,6 +49,7 @@ async def on_message(message):
     if "!ping" in message.content.lower():
         print(message.content)
         await message.channel.send('pong')
+    
 
 
 
