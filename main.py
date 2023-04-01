@@ -5,6 +5,7 @@ import discord
 from discord.ext import commands
 from chatgpt import msgresponse
 from dotenv import load_dotenv
+import time
 load_dotenv()
 client = discord.Client(intents=discord.Intents.all())
 
@@ -22,13 +23,11 @@ async def on_message(message):
         return
     
     if "!gpt" in message.content.lower():
-        if len(message.content) <= 5:
-            return None
-        if message.content[0:4] != "!gpt":
-            return None
         x = msgresponse(message.content[4:])
-        x = x.replace("As an AI language model, ","");
-        await message.channel.send(x)
+        for i in x:
+            time.sleep(1)
+            await message.channel.send(i+"\n")
+        #await message.channel.send(msgresponse(message.content[4:]))
     if "!ping" in message.content.lower():
         print(message.content)
         await message.channel.send('pong')
@@ -36,5 +35,5 @@ async def on_message(message):
 
 
 
-
-client.run(os.environ['DISCORD_TOKEN'])
+client.run(os.getenv('DISCORD_TOKEN'))
+#client.run(os.environ['DISCORD_TOKEN'])
