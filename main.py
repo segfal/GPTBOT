@@ -27,13 +27,17 @@ async def on_message(message):
         
         #hello with user name
         await message.channel.send(f'Hello <@{message.author.id}>!')
-    if "!jerb" in message.content.lower():
+    if "??" in message.content.lower():
         await message.channel.send(random.choice([
-            "Leave me alone, I'm trying to sleep.",
-            "who are you?",
+            
             "tf do you want?",
-            "I'm not your bitch",
-            "Stop it"
+            "what do you want?",
+            "what do you want from me?",
+            "tf do you want from me?",
+            "whats up?",
+            "whats good?",
+            "whats up homie?",
+            
         ]))
         return None
     
