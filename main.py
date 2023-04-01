@@ -22,9 +22,17 @@ async def on_message(message):
     print(message.content)
     if message.author == client.user:
         return
+    #new user join
+    if message.content.startswith('!hello'):
+        
+        #hello with user name
+        await message.channel.send(f'Hello {message.author.name}!')
+
     
     if "!gpt" in message.content.lower():
         x = msgresponse(message.content[4:])
+        ##add user name in first line
+        x[0] = f"{message.author.name} {x[0]}"
         for i in x:
             async with message.channel.typing():
                 time.sleep(random.randint(1,7))
