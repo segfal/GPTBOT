@@ -5,18 +5,11 @@ import os
 
 load_dotenv()
 
-
+#get token from .env file
+#openai.api_key = os.getenv("OPENAI_TOKEN")
 
 openai.api_key = os.environ["OPENAI_TOKEN"]
-'''
-response = openai.ChatCompletion.create(
-    model="gpt-3.5-turbo",
-    messages=[{
-        "role": "user",
-        "content": "Recipe for a chocolate cake"
-    }],
-)
-'''
+
 def msgresponse(message):
     response = openai.ChatCompletion.create(
     model="gpt-3.5-turbo",
@@ -25,7 +18,8 @@ def msgresponse(message):
         "content": message
     }],
     )
-
-    return response["choices"][0]["message"]["content"]
-
-#print(response["choices"][0]["message"]["content"])
+    msg = response["choices"][0]["message"]["content"]
+    if "As an AI language model, " in msg:
+        msg = msg.replace("As an AI language model, ", "")
+    msg = msg.split("\n\n")
+    return msg
