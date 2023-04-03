@@ -61,6 +61,17 @@ async def on_message(message):
                 time.sleep(random.randint(1,7))
             await message.channel.send(i+"\n\n")
         #await message.channel.send(msgresponse(message.content[4:]))
+        
+    if "!uwu" in message.content.lower():
+        uwu = "Using an uwu voice with emojis "
+        x = msgresponse(uwu + message.content[4:])
+        ##add user name in first line
+        x[0] = f"<@{message.author.id}> {x[0]}"
+        for i in x:
+            async with message.channel.typing():
+                time.sleep(random.randint(1,7))
+            await message.channel.send(i+"\n\n")
+        #await message.channel.send(msgresponse(message.content[4:]))
     if "!ping" in message.content.lower():
         print(message.content)
         await message.channel.send('pong')
