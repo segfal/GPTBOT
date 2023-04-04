@@ -21,5 +21,7 @@ def msgresponse(message):
     msg = response["choices"][0]["message"]["content"]
     if "As an AI language model, " in msg:
         msg = msg.replace("As an AI language model, ", "")
+    if "Mongo Tom: " in msg:
+        msg = msg.replace("Mongo Tom: ","")
     msg = msg.split("\n\n")
     return msg
