@@ -23,5 +23,8 @@ def msgresponse(message):
         msg = msg.replace("As an AI language model, ", "")
     if "Mongo Tom: " in msg:
         msg = msg.replace("Mongo Tom: ","")
+    if msg[0] == '"' and msg[-1] == '"':
+        msg = msg[1:-1]
+        
     msg = msg.split("\n\n")
     return msg

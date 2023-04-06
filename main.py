@@ -27,20 +27,9 @@ async def on_message(message):
         
         #hello with user name
         await message.channel.send(f'Hello <@{message.author.id}>!')
-    if "??" in message.content.lower():
-        if random.randint(1,100) % 33 == 0:
-            await message.channel.send(random.choice([
-                
-                "tf do you want?",
-                "what do you want?",
-                "what do you want from me?",
-                "tf do you want from me?",
-                "whats up?",
-                "whats good?",
-                "whats up homie?",
-                
-            ]))
-        return None
+    if random.randint(1,10) % 7 == 0:
+        sen = "Roleplay as a person with a conesending tone.\n"
+        x = msgresponse(sen + message.content)
     
     if "!gpt" in message.content.lower():
         x = msgresponse(message.content[4:])
