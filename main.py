@@ -30,7 +30,7 @@ async def on_message(message):
     num = random.randint(1,10)
     print(num)
     if num % 2 == 0:
-        sen = "Respond in a conesending tone with emojis.\n"
+        sen = "Respond in a conesending way with emojis.\n"
         x = msgresponse(sen + message.content)
         x[0] = f"<@{message.author.id}> {x[0]}"
         for i in x:
