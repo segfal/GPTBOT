@@ -29,7 +29,6 @@ def msgresponse(message):
         msg[i] = msg[i+1]
     if msg[0] == '"' and msg[-1] == '"':
         msg = msg[1:-1]
-    
-
+    msg = msg.replace("Regina George: ","Butler")
     msg = msg.split("\n\n")
     return msg
