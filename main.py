@@ -27,7 +27,9 @@ async def on_message(message):
         
         #hello with user name
         await message.channel.send(f'Hello <@{message.author.id}>!')
-    if random.randint(1,10) % 3 == 0:
+    num = random.randint(1,10)
+    print(num)
+    if num % 3 == 0:
         sen = "Roleplay as a person with a conesending tone.\n"
         x = msgresponse(sen + message.content)
     
