@@ -32,6 +32,11 @@ async def on_message(message):
     if num % 3 == 0:
         sen = "Roleplay as a person with a conesending tone.\n"
         x = msgresponse(sen + message.content)
+        x[0] = f"<@{message.author.id}> {x[0]}"
+        for i in x:
+            async with message.channel.typing():
+                time.sleep(random.randint(1,2))
+            await message.channel.send(i+"\n\n")
     
     if "!gpt" in message.content.lower():
         x = msgresponse(message.content[4:])
