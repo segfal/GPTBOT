@@ -1,7 +1,7 @@
 import openai
 from dotenv import load_dotenv
 import os
-
+import string
 
 load_dotenv()
 
@@ -23,8 +23,13 @@ def msgresponse(message):
         msg = msg.replace("As an AI language model, ", "")
     if "Mongo Tom: " in msg:
         msg = msg.replace("Mongo Tom: ","")
+    
+    i = 0
+    while msg[i] not in string.ascii_letters and i < len(msg):
+        msg[i] = msg[i+1]
     if msg[0] == '"' and msg[-1] == '"':
         msg = msg[1:-1]
-        
+    
+
     msg = msg.split("\n\n")
     return msg
