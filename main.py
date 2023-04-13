@@ -19,6 +19,16 @@ async def on_ready():
 #using a command to get the bot to respond
 @client.event
 async def on_message(message):
+    #bantable
+    bantable = [
+        455538389559541771,
+        231276339192266753,
+        
+
+    ]
+    if message.author.id in bantable:
+        return
+    
     print(message.content)
     if message.author == client.user:
         return
