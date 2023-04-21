@@ -20,13 +20,7 @@ async def on_ready():
 @client.event
 async def on_message(message):
     #bantable
-    bantable = [
-        455538389559541771,
-        231276339192266753,
-        
-
-    ]
-    if message.author.id in bantable:
+    if message.guild.id != 1021186775265325076:
         return
     
     print(message.content)
