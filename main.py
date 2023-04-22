@@ -20,8 +20,8 @@ async def on_ready():
 @client.event
 async def on_message(message):
     #bantable
-    if message.guild.id != 1021186775265325076:
-        return
+    #if message.guild.id != 1021186775265325076:
+    #    return
     
     print(message.content)
     if message.author == client.user:
