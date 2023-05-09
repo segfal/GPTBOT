@@ -25,8 +25,10 @@ def msgresponse(message):
         msg = msg.replace("Mongo Tom: ","")
     
     i = 0
+    '''
     while msg[i] not in string.ascii_letters and i < len(msg):
         msg[i] = msg[i+1]
+    '''
     if msg[0] == '"' and msg[-1] == '"':
         msg = msg[1:-1]
     msg = msg.replace("Regina George: ","Butler")
